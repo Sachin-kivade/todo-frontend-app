@@ -190,7 +190,10 @@ function Todo() {
                   onClick={() => deleteTodo(todo._id)}
                   className="text-red-500 hover:text-red-700"
                 >
-                  ❌
+                  <img
+                    src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png"
+                    alt="Delete"
+                  />
                 </button>
 
               </div>
