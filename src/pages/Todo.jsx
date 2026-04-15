@@ -17,8 +17,16 @@ function Todo() {
       headers: getAuthHeaders(),
     });
 
+    if (res.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+      return;
+    }
+
     const data = await res.json();
-    setTodos(data.todos);
+
+    // ✅ SAFE DEFAULT
+    setTodos(Array.isArray(data.todos) ? data.todos : []);
   } catch (error) {
     console.log(error);
   }
