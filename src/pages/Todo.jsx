@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_BASE } from "../api";
-import { getAuthHeaders } from "../utils/auth";
+import { getAuthHeaders } from "../auth";
 
 function Todo() {
   const [title, setTitle] = useState("");
