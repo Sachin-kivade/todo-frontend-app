@@ -40,37 +40,27 @@ function Todo() {
 
   //  Add Todo
   const addTodo = async () => {
-  if (!title) return;
+    if (!title) return;
 
-  try {
-    console.log("CALLING API...");
-
-    const res = await fetch(`${API_BASE}/todos`, {
+    await fetch(`${API_BASE}/todos`, {
       method: "POST",
       headers: {
         ...getAuthHeaders(),
-        "Content-Type": "application/json"
+        "Content-Type": "application/json"   // 🔥 ADD THIS
       },
-      body: JSON.stringify({ title, date, priority }),
+      body: JSON.stringify({
+        title,
+        date,
+        priority
+      }),
     });
-
-    console.log("STATUS:", res.status);
-
-    const data = await res.json();
-    console.log("RESPONSE:", data);
-
-    console.log(priority)
 
     setTitle("");
     setDate("");
-    setPriority("");
+    setPriority("low");
 
     fetchTodos();
-
-  } catch (err) {
-    console.log("ERROR:", err);
-  }
-};
+  };
   //  Delete
   const deleteTodo = async (id) => {
     await fetch(`${API_BASE}/todos/${id}`, {
