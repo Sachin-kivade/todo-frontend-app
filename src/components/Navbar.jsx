@@ -7,10 +7,10 @@ const Navbar = ({ dark, setDark, handleLogout }) => {
 
       {/* 🔥 LEFT: LOGO + APP NAME */}
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center text-white font-bold">
-          ✓
+        <div className="w-8 h-8 rounded-lg items-center justify-center">
+         <img src="/icon.png" alt="logo" className="w-full h-full object-cover" />
         </div>
-        <h1 className="text-lg font-bold text-gray-800 dark:text-white">
+        <h1 className="text-lg font-bold text-gray-200 dark:text-gray-200">
           Todo Pro
         </h1>
       </div>
