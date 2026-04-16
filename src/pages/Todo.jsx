@@ -235,10 +235,14 @@ function Todo() {
                   {editId === todo._id ? (
                     <button onClick={() => saveEdit(todo._id)}>💾</button>
                   ) : (
-                    <button onClick={() => startEdit(todo)}>✏️</button>
+                    <button onClick={() => startEdit(todo)}>
+                    <img src="/write.png" alt="edit" className="w-8 h-8" />
+                    </button>
                   )}
 
-                  <button onClick={() => deleteTodo(todo._id)}>🗑</button>
+                  <button onClick={() => deleteTodo(todo._id)}>
+                  <img src="/junk.png" alt="delete" className="w-8 h-8" />
+                  </button>
                 </div>
               </motion.li>
             ))}
