@@ -125,6 +125,7 @@ function Todo() {
         dark={dark}
         setDark={setDark}
         handleLogout={logout}
+        username={username} 
       />
 
       {/*  MAIN */}

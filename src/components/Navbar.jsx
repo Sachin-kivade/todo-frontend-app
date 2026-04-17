@@ -19,9 +19,8 @@ const Navbar = ({ dark, setDark, handleLogout }) => {
       <div className="flex items-center gap-4">
 
         {/* 👤 USER NAME */}
-        <span className="text-sm text-gray-600 dark:text-gray-300">
-          Hello, User 👋
-        </span>
+        <div className="flex items-center gap-3">
+        <span>Hello,User 👋</span>
 
         {/* 🌙 DARK MODE */}
         <button
@@ -38,7 +37,7 @@ const Navbar = ({ dark, setDark, handleLogout }) => {
         >
           Logout
         </button>
-
+        </div>
       </div>
     </nav>
   );
