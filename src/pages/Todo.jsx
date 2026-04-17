@@ -48,7 +48,7 @@ function Todo() {
       method: "POST",
       headers: {
         ...getAuthHeaders(),
-        "Content-Type": "application/json"   // 🔥 ADD THIS
+        "Content-Type": "application/json"   
       },
       body: JSON.stringify({
         title,
@@ -157,7 +157,7 @@ function Todo() {
             type="date"
             value={date}
             onChange={(e) => {
-              console.log("DATE:", e.target.value); // 🔥 debug
+              console.log("DATE:", e.target.value); 
               setDate(e.target.value);
             }}
             className="w-full mb-2 p-2 border rounded"
