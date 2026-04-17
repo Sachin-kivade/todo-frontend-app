@@ -3,11 +3,13 @@ import { API_BASE } from "../api";
 import { getAuthHeaders } from "../auth";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
-
+import { Trash, SquarePen, Save} from "lucide-react";
 
 function Todo() {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(() => {
+  return new Date().toISOString().split("T")[0];
+  });
   const [priority, setPriority] = useState("low");
 
   const [todos, setTodos] = useState([]);
@@ -219,7 +221,7 @@ function Todo() {
 
                       <span
                         className={`text-xs px-2 py-1 rounded ${(todo.priority || "low") === "high"
-                            ? "bg-red-200"
+                            ? "bg-red-400"
                             : (todo.priority || "low") === "medium"
                               ? "bg-yellow-200"
                               : "bg-green-200"
@@ -233,15 +235,15 @@ function Todo() {
 
                 <div className="flex gap-2">
                   {editId === todo._id ? (
-                    <button onClick={() => saveEdit(todo._id)}>💾</button>
+                    <button onClick={() => saveEdit(todo._id)}><Save className="w-6 h-6 text-green-500" /></button>
                   ) : (
                     <button onClick={() => startEdit(todo)}>
-                    <img src="/write.png" alt="edit" className="w-8 h-8" />
+                   <SquarePen className="w-6 h-6 text-yellow-500" />
                     </button>
                   )}
 
                   <button onClick={() => deleteTodo(todo._id)}>
-                  <img src="/junk.png" alt="delete" className="w-8 h-8" />
+                 <Trash className="w-6 h-6 text-red-500 hover:text-red-700" />
                   </button>
                 </div>
               </motion.li>
